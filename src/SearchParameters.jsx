@@ -1,5 +1,18 @@
+import {useState} from 'react';
+
+/* // dont't do the below
+    let counter1 = 0;
+ */
 const SearchParameters = () => {
-	const location = 'New York, NY';
+	const [location, setLocation] = useState('');
+	/*
+  //don't do the below
+	counter1++;
+ */
+	const locationChangeHandler = (e) => {
+		e.preventDefault();
+		setLocation(e.target.value);
+	};
 	return (
 		<div className='search-params'>
 			<form>
@@ -8,6 +21,7 @@ const SearchParameters = () => {
 						id='location'
 						value={location}
 						placeholder='Location'
+						onChange={locationChangeHandler}
 					/>
 				</label>
 				<button>Submit</button>
